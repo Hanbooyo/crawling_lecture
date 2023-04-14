@@ -30,5 +30,6 @@ sdict = {'제목' : title_list, # 뉴스 제목 list를 제목의 컬럼에 값�
 df=pd.DataFrame(sdict)
 df.to_csv('./naver_news_crawling_result.csv',index=False)
 print(sdict)
-# %%
-print('a')
+
+#중복값 pandas duplacate 로 제거
+#NaN값 제거
