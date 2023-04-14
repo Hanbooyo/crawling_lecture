@@ -20,10 +20,12 @@ soup = BeautifulSoup(html, 'html.parser')
 # #container > div.aside > div > div.aside_are.aside_popular > table > tbody
 tbody = soup.select_one('#container > div.aside > div > div.aside_area.aside_popular > table > tbody')
 price_list = tbody.select("td")
-
 slist = tbody.select("a")
-for i in range(0,len(slist)):
-    print(price_list[i])
 
-#     print(str(i)[str(i).find("code=")+5:str(i).find("code=")+11]) # 종목 코드 위치 가져와서 슬라이싱
+count = 0
+for i in range(0,len(slist)*2,2):
+    temp = slist[count] # 종목 코드 위치 가져와서 슬라이싱
+    print('종목 이름:', temp.text ,'종목 코드:', str(temp)[str(temp).find("code=")+5:str(temp).find("code=")+11],
+          '현재가:',price_list[i].text, "전일대비:",price_list[i+1].text)
+    count += 1
 #     print(i.text)
